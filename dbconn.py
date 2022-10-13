@@ -9,10 +9,10 @@ from influxdb_client.rest import ApiException
 """
 Define credentials
 """
-url = "http://localhost:8086"
-token = "qjtfFHcYStz3kBn0g1JXmXBD_1esNFr-_S3JU19dxkpZu7BfQLW1CAAwqDiy-GDgBNihkL604foMvLcaOdse9w=="
-org = "aws"
-bucket = "aws"
+url = "http://15.228.220.233:8086"
+token = "Zxbb6GfySqph1ekz7ZSVKhKv9GKsAoomX5gXAg_DmYCEJD6lMcRXuhwcH2YcWpcp1yb3p7SIbSAZ18PHfPoCkg=="
+org = "admin"
+bucket = "admin"
 
 from datetime import datetime, time
 
@@ -20,13 +20,12 @@ from influxdb_client import InfluxDBClient, Point, WritePrecision
 from influxdb_client.client.write_api import SYNCHRONOUS
 
 # You can generate an API token from the "API Tokens Tab" in the UI
-token = "qjtfFHcYStz3kBn0g1JXmXBD_1esNFr-_S3JU19dxkpZu7BfQLW1CAAwqDiy-GDgBNihkL604foMvLcaOdse9w=="
-org = "aws"
-bucket = "-aws"
+token = "Zxbb6GfySqph1ekz7ZSVKhKv9GKsAoomX5gXAg_DmYCEJD6lMcRXuhwcH2YcWpcp1yb3p7SIbSAZ18PHfPoCkg=="
+org = "admin"
+bucket = "admin"
 
-with InfluxDBClient(url="http://localhost:8086", token=token, org=org) as client:
+with InfluxDBClient(url="http://15.228.220.233:8086", token=token, org=org) as client:
  write_api = client.write_api(write_options=SYNCHRONOUS)
- data = "sensor,device=ESP8266,host=AWS temperatura=31"
+ data = "sensor,device=ESP8266,host=AWS temperatura=40"
  write_api.write(bucket, org, data)
-
 
